@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de precios de juegos</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">GameDeals</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="favoritos.html">Favoritos (<span id="contador-favoritos">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Videojuegos en oferta</h1>
+        <p class="subtitle">Encuentra los mejores precios en tus juegos favoritos</p>
+
+        <div class="filters">
+            <input type="text" id="search-input" placeholder="Buscar por nombre de juego...">
+            <select id="store-selector">
+                <option value="">Todas las tiendas</option>
+            </select>
+        </div>
+
+        <!-- Spinner para la carga -->
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>Cargando juegos...</p>
+        </div>
+
+        <!-- Mensaje de error (oculto por defecto) -->
+        <div id="error-message" class="error-message hidden">
+            <p>Ha ocurrido un error al cargar los juegos. Por favor, inténtalo de nuevo más tarde.</p>
+        </div>
+
+        <!-- Resultados de la búsqueda -->
+        <div id="despliegue-tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Juego</th>
+                        <th>Tienda</th>
+                        <th>Metacritic</th>
+                        <th>Descuento</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="games-tbody"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Enlace al script de la página -->
+    <script type="module" src="./js/pages/index.js"></script>
+</body>
+</html>

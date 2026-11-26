@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de precios de juegos</title>
+    <link rel="stylesheet" href="./css/styles.css"> 
+    <!-- Librería Chart.js para el gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">GameDeals</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="favoritos.html">Favoritos (<span id="contador-favoritos">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p style="margin-bottom: 1rem;">
+            <a href="index.html" class="btn">&larr; Volver al listado</a>
+        </p>
+
+        <!-- Spinner para la carga -->
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>Cargando comparativas del juego...</p>
+        </div>
+
+        <!-- Mensaje de error (oculto por defecto) -->
+        <div id="error-message" class="error-message hidden">
+            <p>Ha ocurrido un error al cargar la información del juego. Por favor, inténtalo de nuevo más tarde.</p>
+        </div>
+
+        <!-- Contenido de la página -->
+        <div id="game-details" class="hidden">
+            <!-- Ficha del juego -->
+            <div class="card-box" id="info-juego"></div>
+
+            <!-- Gráfico de comparativa de precios -->
+            <div class="card-box">
+                <div class="chart-header">
+                    <div>
+                        <h2>Comparativa de precios</h2>
+                        <p class="subtitle" style="margin-bottom: 0;">Historial de precios en diferentes plataformas</p>
+                    </div>
+
+                    <!-- Controles del gráfico -->
+                    <div class="filters" style="margin-bottom: 0;">
+                        <select id="tipo-grafico">
+                            <option value="bar">Gráfico de barras</option>
+                            <option value="line">Gráfico de líneas</option>
+                        </select>
+                        <select id="orden-tiendas">
+                            <option value="precio_asc">Ordenar por precio ascendente</option>
+                            <option value="precio_desc">Ordenar por precio descendente</option>
+                            <option value="nombre">Ordenar por nombre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- El canvas dentro de .card-box -->
+                <div class="canvas-box">
+                    <canvas id="price-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Enlace al script de la página -->
+    <script type="module" src="./js/pages/detalles.js"></script>
+</body>
+</html>

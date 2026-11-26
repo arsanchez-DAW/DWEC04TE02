@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">GameDeals</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="favoritos.html" class="active">Favoritos (<span id="contador-favoritos">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Mis Juegos Favoritos</h1>
+        <p class="subtitle">Lista de deseados guardada en tu navegador con cálculo de ahorro acumulado.</p>
+
+        <!-- Resumen -->
+        <div id="resumen-favoritos" class="card-box hidden" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <p><strong>Total juegos:</strong> <span id="total-juegos">0</span></p>
+                <p><strong>Coste total actual:</strong> $<span id="coste-total">0.00</span></p>
+                <p><strong>Ahorro acumulado:</strong> <span class="badge">$<span id="ahorro-total">0.00</span></span></p>
+            </div>
+            <button id="btn-vaciar" class="btn">Vaciar favoritos</button>
+        </div>
+
+        <!-- Mensaje cuando no hay favoritos -->
+        <div id="sin-favoritos" class="card-box hidden" style="text-align: center;">
+            <p class="subtitle" style="margin-bottom: 1rem;">Aún no has guardado ningún videojuego en tu lista de favoritos.</p>
+            <a href="index.html" class="btn btn-primary">Explorar ofertas</a>
+        </div>
+
+        <!-- Tabla de juegos favoritos -->
+        <div id="tabla-favoritos-wrapper" class="table-wrapper hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Juego</th>
+                        <th>Tienda</th>
+                        <th>Descuento</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="favoritos-tbody"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src="./js/pages/favoritos.js"></script>
+</body>
+</html>
